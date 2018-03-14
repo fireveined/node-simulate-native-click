@@ -1,0 +1,30 @@
+{
+  "name": "simulate-native-click",
+  "version": "1.0.0",
+  "description": "Simulate native clicks in node.js",
+  "keywords": [
+    "node",
+    "winapi",
+    "addon",
+    "cpp",
+    "native",
+    "electron",
+    "simulate",
+    "click"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc index.ts",
+    "compile": "node-gyp rebuild"
+  },
+  "author": "fireveined",
+  "license": "ISC",
+  "dependencies": {
+    "nan": "^2.9.2",
+    "node-gyp": "^3.6.2"
+  },
+  "gypfile": true,
+  "devDependencies": {
+    "@types/node": "^9.4.7"
+  }
+}
