@@ -5,6 +5,11 @@ enum Type {
         RIGHT
 }
 
+interface Point {
+        x: number;
+        y: number;
+}
+
 class SimulateNativeClick {
 
         private click(type: Type, hwnd: number | Buffer, x: number, y: number) {
@@ -31,10 +36,14 @@ class SimulateNativeClick {
                 this.click(Type.RIGHT, hwnd, x, y);
         }
 
-        public left(hwnd: number | Buffer, x: number, y: number): void{
+        public left(hwnd: number | Buffer, x: number, y: number): void {
                 this.click(Type.LEFT, hwnd, x, y);
+        }
+
+        public getMousePosition(hwnd?: number | Buffer): Point {
+                return addon.getMousePosition(hwnd);
         }
 
 }
 var simulateNativeClick = new SimulateNativeClick();
-module.exports = simulateNativeClick;
+export = simulateNativeClick;
