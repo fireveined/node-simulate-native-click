@@ -21,7 +21,11 @@ x = 300;
 y = 300;
 simulateClick.right(hwnd, x, y);
 
+simulateClick.getMousePosition(hwnd); // {x, y}
+// position relative to window
+
 simulateClick.getMousePosition(); // {x, y}
+// global screen position returned if no hwnd provided
 ```
 
 You can obtain HWND using `winctl` package

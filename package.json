@@ -18,6 +18,10 @@
     "compile": "node-gyp rebuild"
   },
   "homepage": "https://github.com/fireveined/node-simulate-native-click",
+  "repository" :
+  { "type" : "git",
+     "url" : "https://github.com/fireveined/node-simulate-native-click"
+  },
   "author": "fireveined",
   "license": "ISC",
   "dependencies": {
