@@ -1,3 +1,4 @@
+"use strict";
 var addon = require('./build/Release/addon');
 var Type;
 (function (Type) {
@@ -27,6 +28,12 @@ var SimulateNativeClick = /** @class */ (function () {
     };
     SimulateNativeClick.prototype.left = function (hwnd, x, y) {
         this.click(Type.LEFT, hwnd, x, y);
+    };
+    SimulateNativeClick.prototype.getMousePosition = function (hwnd) {
+        return addon.getMousePosition(hwnd);
+    };
+    SimulateNativeClick.prototype.getHwndFromPid = function (pid) {
+        return addon.getHwndFromPid(pid);
     };
     return SimulateNativeClick;
 }());

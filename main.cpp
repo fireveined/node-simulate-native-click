@@ -51,6 +51,34 @@ void rightClick(const FunctionCallbackInfo<Value> &args)
     click(args, ClickType::RIGHT);
 }
 
+
+
+HWND g_HWND=NULL;
+int pid = 0;
+BOOL CALLBACK EnumWindowsProcMy(HWND hwnd,LPARAM lParam)
+{
+      DWORD lpdwProcessId;
+    GetWindowThreadProcessId(hwnd,&lpdwProcessId);
+    if(lpdwProcessId==lParam)
+    {
+        g_HWND=hwnd;
+        return FALSE;
+    }
+    return TRUE;
+}
+
+
+void getHwndFromPid(const FunctionCallbackInfo<Value> &args)
+{
+    int pidarg = ((int)args[0]->NumberValue());
+    v8::Isolate *isolate = args.GetIsolate();
+    v8::HandleScope scope(isolate);
+    pid = pidarg;
+    EnumWindows(EnumWindowsProcMy,pid);
+
+    args.GetReturnValue().Set(Number::New(isolate, (int)g_HWND));
+}
+
 void getMousePosition(const FunctionCallbackInfo<Value> &args)
 {
     HWND hwnd = (HWND)((int)args[0]->NumberValue());
@@ -78,7 +106,7 @@ void Init(Handle<Object> exports)
 {
     NODE_SET_METHOD(exports, "leftClick", leftClick);
     NODE_SET_METHOD(exports, "rightClick", rightClick);
-
+ NODE_SET_METHOD(exports, "getHwndFromPid", getHwndFromPid);
     NODE_SET_METHOD(exports, "getMousePosition", getMousePosition);
 }
 

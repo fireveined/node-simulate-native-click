@@ -1,6 +1,6 @@
 {
   "name": "simulate-native-click",
-  "version": "0.7.1",
+  "version": "0.7.3",
   "description": "Simulate native clicks in node.js",
   "keywords": [
     "node",
@@ -18,9 +18,9 @@
     "compile": "node-gyp rebuild"
   },
   "homepage": "https://github.com/fireveined/node-simulate-native-click",
-  "repository" :
-  { "type" : "git",
-     "url" : "https://github.com/fireveined/node-simulate-native-click"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fireveined/node-simulate-native-click"
   },
   "author": "fireveined",
   "license": "ISC",

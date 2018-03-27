@@ -44,6 +44,9 @@ class SimulateNativeClick {
                 return addon.getMousePosition(hwnd);
         }
 
+        public getHwndFromPid(pid: number): number {
+                return addon.getHwndFromPid(pid);
+        }
 }
 var simulateNativeClick = new SimulateNativeClick();
 export = simulateNativeClick;
