@@ -1,6 +1,6 @@
 # simulate-native-click
 
-> Simple C++/WinApi addon that allow to simulate native clicks. TypeScript definitions inside.
+> Simple C++/WinApi addon that allow to simulate native clicks on Windows. TypeScript definitions inside.
 
 ## Install
 
